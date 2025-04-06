@@ -3,38 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player_Collision : MonoBehaviour
 {
-    public int MaxHits = 3;
-    public int HitsCount = 3;
-    public Text gameOverText;
+    public int HP = 3;
+    public int NewHP = 3;
+    public int HitsCount = 0;
+    //bool isGameOver = false;
+
+    void DisplayHP()
+    {
+        UIManager.Instance.DisplayHP(NewHP);
+    }
+    void DisplayGameOver()
+    {
+        UIManager.Instance.DisplayGameOver();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacles"))
+        {
+            HitsCount++;
+            NewHP = HP - HitsCount;
+            DisplayHP();
+
+            if (HitsCount >= HP)
+            {
+                //isGameOver = true;
+                DisplayGameOver();
+                Time.timeScale = 0;
+                return;
+            }
+
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        if (gameOverText != null)
-            gameOverText.gameObject.SetActive(false);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Obstacles"))
-        {
-            HitsCount++;
-            Debug.Log("HP : " + (HitsCount - 1));
-
-            if (HitsCount <= MaxHits)
-            {
-                GameOver();
-            }
-        }
+        UIManager.Instance.DisplayHP(NewHP);
     }
 
-    void GameOver()
-    {
-        Debug.Log("Game Over");
-        if (gameOverText != null)
-            gameOverText.gameObject.SetActive(true);
-    }
+
     // Update is called once per frame
-    
+    private void Update()
+    {
+
+    }
+
 }
