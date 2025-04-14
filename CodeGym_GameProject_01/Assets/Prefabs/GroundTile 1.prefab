@@ -175,11 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99aa9881160f6ff47ac4c10182b30742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizonobstacles_Spawnpoint: {fileID: 3737422803798568204}
-  horizonobstaclesPrefab: {fileID: 7565390538172065713, guid: 2b2e67ddc14f9d140bfcef0d780bd013,
+  horizon_Spawnpoint: {fileID: 3737422803798568204}
+  horizonobs_Prefab: {fileID: 7565390538172065713, guid: 2b2e67ddc14f9d140bfcef0d780bd013,
     type: 3}
-  verticalobstacles_Spawnpoint: {fileID: 253351601151507265}
-  verticalobstaclesPrefab: {fileID: 1536196144720818917, guid: 3f90289873d172744b7bee5bb96e50bb,
+  vertical_Spawnpoint: {fileID: 253351601151507265}
+  verticalobs_Prefab: {fileID: 1536196144720818917, guid: 3f90289873d172744b7bee5bb96e50bb,
     type: 3}
 --- !u!1 &4794754953621767310
 GameObject:
@@ -222,9 +222,10 @@ GameObject:
   m_Component:
   - component: {fileID: 253351601151507265}
   - component: {fileID: 800468680581032366}
+  - component: {fileID: 1629653330248348782}
   m_Layer: 0
   m_Name: Verti_Obstacles
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,6 +258,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obstacles_Velocity: {x: 0, y: 7, z: 0}
+  playerScript: {fileID: 8594747979431994981, guid: bafb0c52f020106428bcbfa7ba077a4a,
+    type: 3}
+--- !u!65 &1629653330248348782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265052566429381669}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8705802341317696890
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,9 +291,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3737422803798568204}
   - component: {fileID: 9085726259495765144}
+  - component: {fileID: 4253227345885156755}
   m_Layer: 0
   m_Name: Hori_Obstacles
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,3 +327,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obstacles_Velocity: {x: 7, y: 0, z: 0}
+  playerScript: {fileID: 8594747979431994981, guid: bafb0c52f020106428bcbfa7ba077a4a,
+    type: 3}
+--- !u!65 &4253227345885156755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8705802341317696890}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

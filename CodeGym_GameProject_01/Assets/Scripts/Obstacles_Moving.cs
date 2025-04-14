@@ -8,24 +8,38 @@ public class Obstacles_Moving : MonoBehaviour
     public Vector3 Obstacles_Velocity;
     private Vector3 startPosition;
     private float movedDistance = 0f;
-    private bool IsReTurning = false;
+    private bool isReTurning = false;
+    Player_LockMovement playerScript;
+    private bool isIncreased = false;
+    public float increaseDistance = 50f;
+
+
+
     private void ReverseDirection()
     {
         Obstacles_Velocity = -Obstacles_Velocity; // Đảo chiều
         movedDistance = 0f; // Reset quãng đường
     }
+    public void IncreaseSpeed()
+    {
+        Obstacles_Velocity += Obstacles_Velocity.normalized * 1.5f;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Obstacles_Velocity = -Obstacles_Velocity;
-            IsReTurning = true;
+            isReTurning = true;
+
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
         startPosition = transform.position;
+        playerScript = GameObject.FindObjectOfType<Player_LockMovement>();
     }
 
     // Update is called once per frame
@@ -34,14 +48,14 @@ public class Obstacles_Moving : MonoBehaviour
         float moveStep = Obstacles_Velocity.magnitude * Time.deltaTime;
         movedDistance += moveStep;
 
-        if (IsReTurning)
+        if (isReTurning)
         {
             if (Vector3.Distance(transform.position, startPosition) < 1.0f || Vector3.Distance(transform.position, startPosition) >= 20f)
             {
                 ReverseDirection();
-                IsReTurning = false;
+                isReTurning = false;
             }
-            
+
         }
         else
         {
@@ -49,11 +63,27 @@ public class Obstacles_Moving : MonoBehaviour
             {
                 ReverseDirection();
             }
-            
+
         }
         transform.Translate(Obstacles_Velocity * Time.deltaTime);
+
+       
+
+
+        if ((playerScript.playerDistance >= increaseDistance))
+        {
+            
+                IncreaseSpeed();
+                isIncreased = true;
+                increaseDistance += 50f;
+         
+        }
+       
     }
+
+
 }
+
 //do
 //{
 //    Obstacles_Velocity = -transform.position;

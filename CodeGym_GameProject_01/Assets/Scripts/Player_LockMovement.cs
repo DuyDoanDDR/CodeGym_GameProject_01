@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Player_LockMovement : MonoBehaviour
 {
+    public float playerDistance;
+    Vector3 playerStartPosition;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerStartPosition = transform.position;
     }
     public CharacterController controller;
-    public float speed = 5f;
+    public float speed = 0f;
     private Vector3 moveDirection;
 
     // Update is called once per frame
@@ -21,5 +24,8 @@ public class Player_LockMovement : MonoBehaviour
         moveDirection *= speed;
 
         controller.Move(moveDirection * Time.deltaTime);
+
+        playerDistance = Vector3.Distance(playerStartPosition, transform.position);
+        
     }
 }
