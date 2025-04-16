@@ -9,16 +9,43 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public TMP_Text HPText;
-    public TMP_Text GameOverText;
-    public void DisplayHP(int HP)
+    
+    public Image GameOver_UI;
+    public Image HP_UI_1;
+    public Image HP_UI_2;
+    public Image HP_UI_3;
+    public Image ReplayButton_UI;
+    public Image ExitButton_UI;
+
+    
+
+    public void DisplayHP()
     {
-        HPText.text = "HP : " +(HP.ToString());
+        HP_UI_1.gameObject.SetActive(true);
+        HP_UI_2.gameObject.SetActive(true);
+        HP_UI_3.gameObject.SetActive(true);
+        
     }
     public void DisplayGameOver()
     {
-        GameOverText.text = "Game Over !";
+        ReplayButton_UI.gameObject.SetActive(true);
+        ExitButton_UI.gameObject.SetActive(true);
+        GameOver_UI.gameObject.SetActive(true);
+       
     }
+
+    public void OnReplayButton()
+    {
+        Debug.Log("Clicked!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnExitButton()
+    {
+        Debug.Log("Clicked");
+        Application.Quit();
+    }
+
 
     private void OnEnable()
     {

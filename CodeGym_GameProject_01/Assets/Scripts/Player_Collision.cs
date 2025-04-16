@@ -10,11 +10,14 @@ public class Player_Collision : MonoBehaviour
     public int HP = 3;
     public int NewHP = 3;
     public int HitsCount = 0;
-    //bool isGameOver = false;
+    float Y_Position;
 
+
+    
     void DisplayHP()
     {
-        UIManager.Instance.DisplayHP(NewHP);
+        UIManager.Instance.DisplayHP();
+        
     }
     void DisplayGameOver()
     {
@@ -27,13 +30,24 @@ public class Player_Collision : MonoBehaviour
             HitsCount++;
             NewHP = HP - HitsCount;
             DisplayHP();
-
-            if (HitsCount >= HP)
+            switch (NewHP)
             {
-                //isGameOver = true;
-                DisplayGameOver();
-                Time.timeScale = 0;
-                return;
+                case 0:
+                    DisplayGameOver();
+                    UIManager.Instance.HP_UI_3.gameObject.SetActive(false);
+                    UIManager.Instance.HP_UI_2.gameObject.SetActive(false);
+                    UIManager.Instance.HP_UI_1.gameObject.SetActive(false);
+                    Time.timeScale = 0;
+                    break;
+                case 1:
+                    DisplayHP();
+                    UIManager.Instance.HP_UI_3.gameObject.SetActive(false);
+                    UIManager.Instance.HP_UI_2.gameObject.SetActive(false);
+                    break;
+                case 2:
+                    DisplayHP();
+                    UIManager.Instance.HP_UI_3.gameObject.SetActive(false);
+                    break;
             }
 
         }
@@ -41,14 +55,20 @@ public class Player_Collision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIManager.Instance.DisplayHP(NewHP);
+        UIManager.Instance.DisplayHP();
     }
 
 
     // Update is called once per frame
     private void Update()
     {
-
+        Y_Position = transform.position.y;
+        if (Y_Position < -5)
+        {
+            DisplayGameOver();
+            Time.timeScale = 0;
+            return;
+        }
     }
 
 }

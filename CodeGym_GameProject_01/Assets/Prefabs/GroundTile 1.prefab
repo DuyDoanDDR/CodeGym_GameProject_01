@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4691320b36a98eb419d1ee15399f3e07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -176,10 +176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizon_Spawnpoint: {fileID: 3737422803798568204}
-  horizonobs_Prefab: {fileID: 7565390538172065713, guid: 2b2e67ddc14f9d140bfcef0d780bd013,
+  horizonobs_Prefab: {fileID: 7686334644438414394, guid: 78b5670822b8b4148a98421af29d4151,
     type: 3}
   vertical_Spawnpoint: {fileID: 253351601151507265}
-  verticalobs_Prefab: {fileID: 1536196144720818917, guid: 3f90289873d172744b7bee5bb96e50bb,
+  verticalobs_Prefab: {fileID: 5802726038594890988, guid: dd5ac45dff34a4442bb30c4db8736411,
     type: 3}
 --- !u!1 &4794754953621767310
 GameObject:
@@ -239,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 8265052566429381669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0.5, z: 0}
+  m_LocalPosition: {x: 10, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -257,9 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed0a6e235ee8ab4fa11d93bbc39aafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacles_Velocity: {x: 0, y: 7, z: 0}
-  playerScript: {fileID: 8594747979431994981, guid: bafb0c52f020106428bcbfa7ba077a4a,
-    type: 3}
+  Obstacles_Velocity: {x: 0, y: 8, z: 0}
+  increaseDistance: 50
 --- !u!65 &1629653330248348782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -280,7 +279,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &8705802341317696890
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,8 +306,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8705802341317696890}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -326,9 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed0a6e235ee8ab4fa11d93bbc39aafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacles_Velocity: {x: 7, y: 0, z: 0}
-  playerScript: {fileID: 8594747979431994981, guid: bafb0c52f020106428bcbfa7ba077a4a,
-    type: 3}
+  Obstacles_Velocity: {x: -8, y: 0, z: 0}
+  increaseDistance: 50
 --- !u!65 &4253227345885156755
 BoxCollider:
   m_ObjectHideFlags: 0

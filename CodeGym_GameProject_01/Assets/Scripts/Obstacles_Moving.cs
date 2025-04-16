@@ -10,7 +10,7 @@ public class Obstacles_Moving : MonoBehaviour
     private float movedDistance = 0f;
     private bool isReTurning = false;
     Player_LockMovement playerScript;
-    private bool isIncreased = false;
+    //private bool isIncreased = false;
     public float increaseDistance = 50f;
 
 
@@ -70,11 +70,11 @@ public class Obstacles_Moving : MonoBehaviour
        
 
 
-        if ((playerScript.playerDistance >= increaseDistance))
+        if (playerScript.playerDistance >= increaseDistance)
         {
             
                 IncreaseSpeed();
-                isIncreased = true;
+                //isIncreased = true;
                 increaseDistance += 50f;
          
         }
