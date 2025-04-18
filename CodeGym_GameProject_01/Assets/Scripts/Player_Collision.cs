@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Player_Collision : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Player_Collision : MonoBehaviour
     public int NewHP = 3;
     public int HitsCount = 0;
     float Y_Position;
-
+   
 
     
     void DisplayHP()
@@ -51,23 +52,28 @@ public class Player_Collision : MonoBehaviour
 
         }
     }
+   
+   
     // Start is called before the first frame update
     void Start()
     {
         UIManager.Instance.DisplayHP();
+        
     }
 
 
     // Update is called once per frame
     private void Update()
     {
+        Debug.Log("Running");
         Y_Position = transform.position.y;
         if (Y_Position < -5)
         {
-            DisplayGameOver();
             Time.timeScale = 0;
-           
+            DisplayGameOver();
+            
         }
+
     }
 
 }

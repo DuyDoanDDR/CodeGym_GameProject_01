@@ -19,8 +19,8 @@ public class Player_LockMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxis("Horizontal");  // Nhận input di chuyển ngang
-        moveDirection = new Vector3(moveX, 0, 0);   // Chỉ cho phép di chuyển trên trục X
+        float moveX = Input.GetAxis("Horizontal");  
+        moveDirection = new Vector3(moveX, 0, 0);   
         moveDirection *= speed;
 
         controller.Move(moveDirection * Time.deltaTime);
