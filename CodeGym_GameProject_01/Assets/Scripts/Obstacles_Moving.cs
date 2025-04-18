@@ -10,15 +10,12 @@ public class Obstacles_Moving : MonoBehaviour
     private float movedDistance = 0f;
     private bool isReTurning = false;
     Player_LockMovement playerScript;
-    //private bool isIncreased = false;
     public float increaseDistance = 50f;
-
-
 
     private void ReverseDirection()
     {
-        Obstacles_Velocity = -Obstacles_Velocity; // Đảo chiều
-        movedDistance = 0f; // Reset quãng đường
+        Obstacles_Velocity = -Obstacles_Velocity; 
+        movedDistance = 0f; 
     }
     public void IncreaseSpeed()
     {
@@ -55,11 +52,10 @@ public class Obstacles_Moving : MonoBehaviour
                 ReverseDirection();
                 isReTurning = false;
             }
-
         }
         else
         {
-            if (movedDistance >= 20f) // Nếu di chuyển được 20 đơn vị
+            if (movedDistance >= 20f) 
             {
                 ReverseDirection();
             }
@@ -67,14 +63,10 @@ public class Obstacles_Moving : MonoBehaviour
         }
         transform.Translate(Obstacles_Velocity * Time.deltaTime);
 
-       
-
-
         if (playerScript.playerDistance >= increaseDistance)
         {
             
                 IncreaseSpeed();
-                //isIncreased = true;
                 increaseDistance += 50f;
          
         }
@@ -84,8 +76,3 @@ public class Obstacles_Moving : MonoBehaviour
 
 }
 
-//do
-//{
-//    Obstacles_Velocity = -transform.position;
-//}
-//while (

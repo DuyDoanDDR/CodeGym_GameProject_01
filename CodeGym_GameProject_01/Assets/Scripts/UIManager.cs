@@ -34,17 +34,7 @@ public class UIManager : MonoBehaviour
        
     }
 
-    public void OnReplayButton()
-    {
-        Debug.Log("Clicked!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void OnExitButton()
-    {
-        Debug.Log("Clicked");
-        Application.Quit();
-    }
+    
 
 
     private void OnEnable()

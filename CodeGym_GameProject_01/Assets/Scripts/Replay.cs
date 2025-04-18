@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Exit : MonoBehaviour
+public class Replay : MonoBehaviour
 {
-    public void OnExitButton()
+    public void OnReplayButton()
     {
-        Debug.Log("Clicked");
-        Application.Quit();
+        Debug.Log("Clicked!");
+       
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame

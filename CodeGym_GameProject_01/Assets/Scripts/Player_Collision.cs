@@ -29,7 +29,6 @@ public class Player_Collision : MonoBehaviour
         {
             HitsCount++;
             NewHP = HP - HitsCount;
-            DisplayHP();
             switch (NewHP)
             {
                 case 0:
@@ -67,7 +66,7 @@ public class Player_Collision : MonoBehaviour
         {
             DisplayGameOver();
             Time.timeScale = 0;
-            return;
+           
         }
     }
 

@@ -13,9 +13,6 @@ public class GroundTile : MonoBehaviour
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
-        //SpawnObstacles();
-
-
     }
 
 
@@ -23,24 +20,16 @@ public class GroundTile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            groundSpawner.SpawnTile();
-            
+            groundSpawner.SpawnTile();       
         }
-
     }
     // Update is called once per frame
     void Update()
-    {
-
-    }
-
-
+    { }
 
     public Transform horizon_Spawnpoint;
-   
     public GameObject horizonobs_Prefab;
     public Transform vertical_Spawnpoint;
-   
     public GameObject verticalobs_Prefab;
     public void SpawnObstacles()
     {
@@ -49,8 +38,6 @@ public class GroundTile : MonoBehaviour
         
         GameObject verticlone = Instantiate(verticalobs_Prefab, vertical_Spawnpoint.position, Quaternion.identity, transform);
         verticlone.transform.SetParent(vertical_Spawnpoint);
-        
-
     }
 
 
