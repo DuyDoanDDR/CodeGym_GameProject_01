@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 
 public class Player_Collision : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class Player_Collision : MonoBehaviour
     public int NewHP = 3;
     public int HitsCount = 0;
     float Y_Position;
-   
+    public static bool IsCollided = false;
 
-    
+
+
     void DisplayHP()
     {
         UIManager.Instance.DisplayHP();
@@ -24,10 +26,12 @@ public class Player_Collision : MonoBehaviour
     {
         UIManager.Instance.DisplayGameOver();
     }
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
+       
         if (collision.gameObject.CompareTag("Obstacles"))
         {
+            IsCollided = true;
             HitsCount++;
             NewHP = HP - HitsCount;
             switch (NewHP)
@@ -65,7 +69,7 @@ public class Player_Collision : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log("Running");
+        //Debug.Log("Running");
         Y_Position = transform.position.y;
         if (Y_Position < -5)
         {

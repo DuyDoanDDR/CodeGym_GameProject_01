@@ -7,7 +7,7 @@ public class Replay : MonoBehaviour
 {
     public void OnReplayButton()
     {
-        Debug.Log("Clicked!");
+        //Debug.Log("Clicked!");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
    
